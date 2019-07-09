@@ -27,6 +27,7 @@ class App extends React.Component {
         <style global jsx>{`
         body {
           background-color: #3D3A39;
+          color: white
         }
         body::after {
           content: "";
@@ -43,7 +44,7 @@ class App extends React.Component {
       `}</style>
         <Header/>
         <Switch>
-          <Route exact path='/' render={()=><TicketList ticketList={this.state.masterTicketList} />} /> 
+          <Route exact path='/' render={()=><TicketList ticketList={this.state.masterTicketList} />} />
           <Route path='/newticket' render={()=><NewTicketControl onNewTicketCreation={this.handleAddingNewTicketToList} />} />
           <Route component={Error404} />
         </Switch>
@@ -54,4 +55,3 @@ class App extends React.Component {
 }
 
 export default App;
-
