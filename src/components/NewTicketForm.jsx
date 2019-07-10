@@ -12,10 +12,10 @@ function NewTicketForm(props){
     event.preventDefault();
     props.onNewTicketCreation(
       {names: _names.value,
-      location: _location.value,
-      issue: _issue.value,
-      id: v4(),
-      timeOpen: new Moment()
+        location: _location.value,
+        issue: _issue.value,
+        id: v4(),
+        timeOpen: new Moment()
       }
     );
     _names.value = '';
