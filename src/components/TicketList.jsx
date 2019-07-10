@@ -12,14 +12,10 @@ function TicketList(props){
           location={ticket.location}
           issue={ticket.issue}
           key={ticket.id}
-          timeOpen={ticket.timeOpen}/>
+          formattedWaitTime={ticket.formattedWaitTime}/>
       )}
     </div>
   );
-}
-
-function displayTimeOpen(timeOpen) {
-  return timeOpen.from(new Moment(), true);
 }
 
 TicketList.propTypes = {
