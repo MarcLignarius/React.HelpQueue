@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function Admin(){
   return (
@@ -7,5 +8,9 @@ function Admin(){
     </div>
   );
 }
+
+Admin.propTypes = {
+  ticketList: PropTypes.array
+};
 
 export default Admin;
