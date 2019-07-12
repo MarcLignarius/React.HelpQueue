@@ -54,7 +54,6 @@ class App extends React.Component {
 
   handleChangingSelectedTicket(ticket){
   this.setState({selectedTicket: ticket});
-  alert('The selected ticket is now: ' + this.state.selectedTicket.names);
   }
 
   render(){
