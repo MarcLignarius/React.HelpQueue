@@ -49,14 +49,14 @@ class App extends React.Component {
   handleAddingNewTicketToList(newTicket){
     var newTicketId = v4();
     let newMasterTicketList = Object.assign({}, this.state.masterTicketList, {
-      [newTicketid]: newTicket
+      [newTicketId]: newTicket
     });
     newMasterTicketList[newTicketId].formattedWaitTime = newMasterTicketList[newTicketId].timeOpen.fromNow(true);
     this.setState({masterTicketList: newMasterTicketList});
   }
 
-  handleChangingSelectedTicket(ticket){
-  this.setState({selectedTicket: ticketId});
+  handleChangingSelectedTicket(ticketId){
+    this.setState({selectedTicket: ticketId});
   }
 
   render(){
