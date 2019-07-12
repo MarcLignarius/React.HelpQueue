@@ -6,4 +6,8 @@ function TicketDetail(){
   );
 }
 
+TicketDetail.propTypes = {
+  selectedTicket: PropTypes.object
+};
+
 export default TicketDetail;
