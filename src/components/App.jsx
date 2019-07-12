@@ -54,7 +54,7 @@ class App extends React.Component {
   }
 
   handleChangingSelectedTicket(ticket){
-  this.setState({selectedTicket: ticket});
+  this.setState({selectedTicket: ticketId});
   }
 
   render(){
