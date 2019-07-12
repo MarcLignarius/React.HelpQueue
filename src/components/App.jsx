@@ -5,6 +5,7 @@ import NewTicketControl from './NewTicketControl';
 import Admin from './Admin';
 import Error404 from './Error404';
 import { Switch, Route } from 'react-router-dom';
+import { v4 } from 'uuid';
 
 class App extends React.Component {
 
@@ -46,10 +47,11 @@ class App extends React.Component {
   }
 
   handleAddingNewTicketToList(newTicket){
+    var newTicketId = v4();
     let newMasterTicketList = Object.assign({}, this.state.masterTicketList, {
-      [newTicket.id]: newTicket
+      [newTicketid]: newTicket
     });
-    newMasterTicketList[newTicket.id].formattedWaitTime = newMasterTicketList[newTicket.id].timeOpen.fromNow(true);
+    newMasterTicketList[newTicketId].formattedWaitTime = newMasterTicketList[newTicketId].timeOpen.fromNow(true);
     this.setState({masterTicketList: newMasterTicketList});
   }
 
