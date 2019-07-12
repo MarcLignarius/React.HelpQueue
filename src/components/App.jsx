@@ -11,7 +11,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      masterTicketList: []
+      masterTicketList: [],
+      selectedTicket: null
     };
     this.handleAddingNewTicketToList = this.handleAddingNewTicketToList.bind(this);
   }
@@ -48,6 +49,11 @@ class App extends React.Component {
     newTicket.formattedWaitTime = (newTicket.timeOpen).fromNow(true);
     newMasterTicketList.push(newTicket);
     this.setState({masterTicketList: newMasterTicketList});
+  }
+
+  handleChangingSelectedTicket(ticket){
+  this.setState({selectedTicket: ticket});
+  alert('The selected ticket is now: ' + this.state.selectedTicket.names);
   }
 
   render(){
