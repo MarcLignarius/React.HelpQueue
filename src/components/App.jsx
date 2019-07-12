@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import TicketList from './TicketList';
 import NewTicketControl from './NewTicketControl';
+import Admin from './Admin';
 import Error404 from './Error404';
 import { Switch, Route } from 'react-router-dom';
 
@@ -74,7 +75,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' render={()=><TicketList ticketList={this.state.masterTicketList} />} />
           <Route path='/newticket' render={()=><NewTicketControl onNewTicketCreation={this.handleAddingNewTicketToList} />} />
-          <Route path='/admin' component={Admin} />
+          <Route path='/admin' render={()=><Admin ticketList={this.state.masterTicketList} />} />
           <Route component={Error404} />
         </Switch>
       </div>
