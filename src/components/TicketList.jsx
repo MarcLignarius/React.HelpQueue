@@ -10,7 +10,8 @@ function TicketList(props){
           location={ticket.location}
           issue={ticket.issue}
           key={ticket.id}
-          formattedWaitTime={ticket.formattedWaitTime}/>
+          formattedWaitTime={ticket.formattedWaitTime}
+          currentRouterPath={props.currentRouterPath}/>
       )}
     </div>
   );
