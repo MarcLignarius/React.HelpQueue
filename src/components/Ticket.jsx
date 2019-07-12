@@ -18,7 +18,6 @@ function Ticket(props){
       <div className="color-toggle">
         <h3>{props.location} - {props.names}</h3>
         <h4>{props.formattedWaitTime}</h4>
-        <p><em>{props.issue}</em></p>
         <br/>
       </div>
       <hr/>
