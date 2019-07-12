@@ -29,13 +29,13 @@ class App extends React.Component {
     clearInterval(this.waitTimeUpdateTimer);
   }
 
-  componentWillReceiveProps() {}
-
-  shouldComponentUpdate() {}
-
-  componentWillUpdate() {}
-
-  componentDidUpdate() {}
+  // componentWillReceiveProps() {}
+  //
+  // shouldComponentUpdate() {}
+  //
+  // componentWillUpdate() {}
+  //
+  // componentDidUpdate() {}
 
   updateTicketElapsedWaitTime() {
     let newMasterTicketList = this.state.masterTicketList.slice();
