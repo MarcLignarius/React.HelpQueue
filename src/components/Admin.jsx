@@ -15,7 +15,7 @@ function Admin(){
 
 Admin.propTypes = {
   ticketList: PropTypes.array,
-  currentRouterPath: PropTypes.string.isRequired
+  currentRouterPath: PropTypes.string
 };
 
 export default Admin;
