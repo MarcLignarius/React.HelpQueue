@@ -6,6 +6,7 @@ import Admin from './Admin';
 import Error404 from './Error404';
 import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class App extends React.Component {
 
@@ -92,5 +93,9 @@ const mapStateToProps = state => {
     masterTicketList: state
   }
 }
+
+App.propTypes = {
+  masterTicketList: PropTypes.object
+};
 
 export default connect(mapStateToProps)(App);
