@@ -4,7 +4,7 @@ import TicketList from './TicketList';
 import NewTicketControl from './NewTicketControl';
 import Admin from './Admin';
 import Error404 from './Error404';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -13,7 +13,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      masterTicketList: {},
       selectedTicket: null
     };
     this.handleChangingSelectedTicket = this.handleChangingSelectedTicket.bind(this);
@@ -31,11 +30,11 @@ class App extends React.Component {
   }
 
   updateTicketElapsedWaitTime() {
-    var newMasterTicketList = Object.assign({}, this.state.masterTicketList);
-    Object.keys(newMasterTicketList).forEach(ticketId => {
-      newMasterTicketList[ticketId].formattedWaitTime = (newMasterTicketList[ticketId].timeOpen).fromNow(true);
-    });
-    this.setState({masterTicketList: newMasterTicketList});
+  //   var newMasterTicketList = Object.assign({}, this.state.masterTicketList);
+  //   Object.keys(newMasterTicketList).forEach(ticketId => {
+  //     newMasterTicketList[ticketId].formattedWaitTime = (newMasterTicketList[ticketId].timeOpen).fromNow(true);
+  //   });
+  //   this.setState({masterTicketList: newMasterTicketList});
   }
 
   handleChangingSelectedTicket(ticketId){
@@ -67,7 +66,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' render={()=>
             <TicketList
-              ticketList={this.state.masterTicketList}
+              ticketList={this.props.masterTicketList}
             />}
           />
           <Route path='/newticket' render={()=>
@@ -75,7 +74,7 @@ class App extends React.Component {
           />
           <Route path='/admin' render={(props)=>
             <Admin
-              ticketList={this.state.masterTicketList}
+              ticketList={this.props.masterTicketList}
               currentRouterPath={props.location.pathname}
               onTicketSelection={this.handleChangingSelectedTicket}
               selectedTicket={this.state.selectedTicket}
@@ -98,4 +97,4 @@ App.propTypes = {
   masterTicketList: PropTypes.object
 };
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));
