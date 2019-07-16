@@ -5,6 +5,7 @@ import NewTicketControl from './NewTicketControl';
 import Admin from './Admin';
 import Error404 from './Error404';
 import { Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class App extends React.Component {
 
@@ -86,4 +87,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default connect()(App);
