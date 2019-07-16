@@ -15,7 +15,6 @@ class App extends React.Component {
       masterTicketList: {},
       selectedTicket: null
     };
-    this.handleAddingNewTicketToList = this.handleAddingNewTicketToList.bind(this);
     this.handleChangingSelectedTicket = this.handleChangingSelectedTicket.bind(this);
   }
 
@@ -30,28 +29,11 @@ class App extends React.Component {
     clearInterval(this.waitTimeUpdateTimer);
   }
 
-  // componentWillReceiveProps() {}
-  //
-  // shouldComponentUpdate() {}
-  //
-  // componentWillUpdate() {}
-  //
-  // componentDidUpdate() {}
-
   updateTicketElapsedWaitTime() {
     var newMasterTicketList = Object.assign({}, this.state.masterTicketList);
     Object.keys(newMasterTicketList).forEach(ticketId => {
       newMasterTicketList[ticketId].formattedWaitTime = (newMasterTicketList[ticketId].timeOpen).fromNow(true);
     });
-    this.setState({masterTicketList: newMasterTicketList});
-  }
-
-  handleAddingNewTicketToList(newTicket){
-    var newTicketId = v4();
-    let newMasterTicketList = Object.assign({}, this.state.masterTicketList, {
-      [newTicketId]: newTicket
-    });
-    newMasterTicketList[newTicketId].formattedWaitTime = newMasterTicketList[newTicketId].timeOpen.fromNow(true);
     this.setState({masterTicketList: newMasterTicketList});
   }
 
@@ -88,9 +70,7 @@ class App extends React.Component {
             />}
           />
           <Route path='/newticket' render={()=>
-            <NewTicketControl
-              onNewTicketCreation={this.handleAddingNewTicketToList}
-            />}
+            <NewTicketControl/>}
           />
           <Route path='/admin' render={(props)=>
             <Admin
@@ -105,7 +85,6 @@ class App extends React.Component {
       </div>
     );
   }
-
 }
 
 export default App;
