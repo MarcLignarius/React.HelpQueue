@@ -5,7 +5,6 @@ import NewTicketControl from './NewTicketControl';
 import Admin from './Admin';
 import Error404 from './Error404';
 import { Switch, Route } from 'react-router-dom';
-import { v4 } from 'uuid';
 
 class App extends React.Component {
 
