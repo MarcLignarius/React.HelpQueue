@@ -87,4 +87,10 @@ class App extends React.Component {
   }
 }
 
-export default connect()(App);
+const mapStateToProps = state => {
+  return {
+    masterTicketList: state
+  }
+}
+
+export default connect(mapStateToProps)(App);
