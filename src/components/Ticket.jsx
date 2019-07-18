@@ -12,7 +12,7 @@ function Ticket(props){
     };
     dispatch(action);
   }
-  
+
   const ticketInformation =
     <div>
       <style jsx>{`
@@ -35,7 +35,7 @@ function Ticket(props){
     </div>;
   if (props.currentRouterPath === '/admin'){
     return (
-      <div onClick={() => {props.onTicketSelection(props.ticketId);}}>
+      <div onClick={() => {handleSavingSelectedTicket(props.ticketId);}}>
         {ticketInformation}
       </div>
     );
