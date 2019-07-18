@@ -28,7 +28,7 @@ function Ticket(props){
     `}</style>
       <div className="color-toggle">
         <h3>{props.location} - {props.names}</h3>
-        <h4>{props.formattedWaitTime}</h4>
+        <h4>{props.formattedWaitTime} ago</h4>
         <br/>
       </div>
       <hr/>
