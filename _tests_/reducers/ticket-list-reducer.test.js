@@ -15,7 +15,7 @@ describe('ticketListReducer', () => {
     expect(ticketListReducer({}, { type: null })).toEqual({});
   });
 
-  test('Should successfully add new ticket data to masterTicketList', () => {
+  test('New ticket should include Moment-formatted wait times', () => {
     const { names, location, issue, timeOpen, id } = sampleTicketData;
     action = {
       type: 'ADD_TICKET',
@@ -23,7 +23,8 @@ describe('ticketListReducer', () => {
       location: location,
       issue: issue,
       timeOpen: timeOpen,
-      id: id
+      id: id,
+      formattedWaitTime: new Moment().fromNow(true)
     };
     expect(ticketListReducer({}, action)).toEqual({
       [id] : {
@@ -31,7 +32,8 @@ describe('ticketListReducer', () => {
         location: location,
         issue: issue,
         timeOpen: timeOpen,
-        id: id
+        id: id,
+        formattedWaitTime: 'a few seconds'
       }
     });
   });
