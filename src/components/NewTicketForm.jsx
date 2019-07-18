@@ -9,21 +9,21 @@ function NewTicketForm(props){
   let _issue = null;
 
   function handleNewTicketFormSubmission(event) {
-  const { dispatch } = props;
-  event.preventDefault();
-  const action = {
-    type: 'ADD_TICKET',
-    id: v4(),
-    names: _names.value,
-    location: _location.value,
-    issue: _issue.value,
-    timeOpen: new Moment()
-  };
-  dispatch(action);
-  _names.value = '';
-  _location.value = '';
-  _issue.value = '';
-}
+    const { dispatch } = props;
+    event.preventDefault();
+    const action = {
+      type: 'ADD_TICKET',
+      id: v4(),
+      names: _names.value,
+      location: _location.value,
+      issue: _issue.value,
+      timeOpen: new Moment()
+    };
+    dispatch(action);
+    _names.value = '';
+    _location.value = '';
+    _issue.value = '';
+  }
 
   return (
     <div>
@@ -52,7 +52,7 @@ function NewTicketForm(props){
           cols="80"
           id='issue'
           placeholder='Describe your issue.'
-          ref={(input) => {_issue = input;}}/>
+          ref={(textarea) => {_issue = textarea;}}/>
         <br/>
         <button type='submit'>Help!</button>
       </form>

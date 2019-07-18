@@ -20,7 +20,7 @@ function Header() {
           color: 'white',
           fontSize: '20px'
         }} to="/"><button>Home</button></Link>
-      <div className={'divider'}></div>
+        <div className={'divider'}></div>
         <Link style={{
           textDecoration: 'none',
           color: 'white',
