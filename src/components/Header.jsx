@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Header.css';
 
 function Header() {
 
@@ -18,17 +19,19 @@ function Header() {
           textDecoration: 'none',
           color: 'white',
           fontSize: '20px'
-        }} to="/">Home</Link> |
+        }} to="/"><button>Home</button></Link>
+      <div className={'divider'}></div>
         <Link style={{
           textDecoration: 'none',
           color: 'white',
           fontSize: '20px'
-        }} to="/newticket">Create Ticket</Link> |
+        }} to="/newticket"><button>Create Ticket</button></Link>
+        <div className={'divider'}></div>
         <Link style={{
           textDecoration: 'none',
           color: 'white',
           fontSize: '20px'
-        }} to="/admin">Admin</Link>
+        }} to="/admin"><button>Admin</button></Link>
         <hr/>
       </div>
     </div>
