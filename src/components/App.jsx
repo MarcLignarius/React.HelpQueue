@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import constants from './../constants';
 const { c } = constants;
+import * as actions from './../actions';
 
 class App extends React.Component {
 
@@ -17,6 +18,12 @@ class App extends React.Component {
       this.updateTicketElapsedWaitTime(),
     60000
     );
+  }
+
+  componentWillMount() {
+    const { dispatch } = this.props;
+    const { watchFirebaseTicketsRef } = actions;
+    dispatch(watchFirebaseTicketsRef());
   }
 
   componentWillUnmount(){

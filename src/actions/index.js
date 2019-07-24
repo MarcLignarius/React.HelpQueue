@@ -1,8 +1,9 @@
 import constants from './../constants';
-const { firebaseConfig } = constants;
+const { firebaseConfig, c } = constants;
+import Firebase from 'Firebase';
 
 firebase.initializeApp(firebaseConfig);
-const tickets = firebase.database().ref('tickets');
+const tickets = Firebase.database().ref('tickets');
 
 export function addTicket(_names, _location, _issue) {
   return () => tickets.push({
@@ -14,9 +15,9 @@ export function addTicket(_names, _location, _issue) {
 }
 
 export function watchFirebaseTicketsRef() {
-    return function(dispatch) {
-      tickets.on('child_added', data => {
-        console.log(data.val());
-      });
-    };
-  }
+  return function(dispatch) {
+    tickets.on('child_added', data => {
+      console.log(data.val());
+    });
+  };
+}
