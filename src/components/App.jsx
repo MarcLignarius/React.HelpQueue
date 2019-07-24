@@ -7,7 +7,8 @@ import Error404 from './Error404';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import c from './../constants';
+import constants from './../constants';
+const { c } = constants;
 
 class App extends React.Component {
 
