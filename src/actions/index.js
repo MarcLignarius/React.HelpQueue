@@ -1,9 +1,10 @@
 import constants from './../constants';
 const { firebaseConfig, c } = constants;
-import Firebase from 'Firebase';
+import Firebase from 'firebase';
+import Moment from 'Moment';
 
 firebase.initializeApp(firebaseConfig);
-const tickets = Firebase.database().ref('tickets');
+const tickets = firebase.database().ref('tickets');
 
 export function addTicket(_names, _location, _issue) {
   return () => tickets.push({
@@ -15,9 +16,13 @@ export function addTicket(_names, _location, _issue) {
 }
 
 export function watchFirebaseTicketsRef() {
-  return function(dispatch) {
+  return function (dispatch) {
     tickets.on('child_added', data => {
-      console.log(data.val());
+      const newTicket = Object.assign({}, data.val(), {
+        id: data.getKey(),
+        formattedWaitTime: new Moment(data.val().timeOpen).from(new Moment())
+      });
+      console.log(newTicket);
     });
   };
 }
