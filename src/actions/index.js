@@ -16,13 +16,20 @@ export function addTicket(_names, _location, _issue) {
 }
 
 export function watchFirebaseTicketsRef() {
-  return function (dispatch) {
+  return function(dispatch) {
     tickets.on('child_added', data => {
       const newTicket = Object.assign({}, data.val(), {
         id: data.getKey(),
         formattedWaitTime: new Moment(data.val().timeOpen).from(new Moment())
       });
-      console.log(newTicket);
+      dispatch(receiveTicket(newTicket));
     });
+  };
+}
+
+function receiveTicket(ticketFromFirebase) {
+  return {
+    type: c.RECEIVE_TICKET,
+    ticket: ticketFromFirebase
   };
 }
